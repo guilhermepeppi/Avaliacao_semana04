@@ -4,6 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//--------------------------------------
+
+//Prova RDI - Semana 4
+//Realize a criação de um programa que simule a gestão de uma biblioteca.
+
+//Kelly Costa
+//Gláucia Andare
+//Guilherme Peppi
+
+//--------------------------------------
+
 //Criar um Menu com 7 opções: 
 //1 - Cadastrar Pessoa 
 //2 - Cadastrar Livro
