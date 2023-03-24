@@ -40,77 +40,80 @@ internal class Program
             {
                 case 1:
                     string nome, cpf, telefone;
-                    int id = 0;
+                    int idade, idPessoa = 0;
 
                     Console.WriteLine("Digite o ID da pessoa");
-                    id = int.Parse(Console.ReadLine());
+                    idPessoa = int.Parse(Console.ReadLine());
 
-                    foreach (Pessoa auxPessoas in Pessoa)
+                    foreach (Pessoa auxPessoa in biblioteca.getPessoas())
                     {
-                        if (auxPessoas.getId() == auxPessoas.getId())
+                        if (auxPessoa.getId() == idPessoa)
                         {
                             Console.WriteLine("Pessoa já cadastrada");
                             return;
                         }
                         else
                         {
-
                             Console.WriteLine("Digite o nome da pessoa");
                             nome = Console.ReadLine();
-                            Console.WriteLine("Digite o cpf da pessoa");
+                            Console.WriteLine("Digite o CPF da pessoa");
                             cpf = Console.ReadLine();
-                            Console.WriteLine("Digite o telefone da pessoa");
+                            Console.WriteLine("Digite o endereço da pessoa");
                             telefone = Console.ReadLine();
+                            Console.WriteLine("Digite a idade da pessoa");
+                            idade = int.Parse(Console.ReadLine());
 
                             // Instanciando a pessoa
-                            Pessoa pessoa = new Pessoa(id++, nome, cpf, telefone);
+                            Pessoa pessoa = new Pessoa(idPessoa++, nome, cpf, telefone);
 
-                            // Instanciando a biblioteca para guardar os dados da pessoa
-                            biblioteca.CadastrarPessoa(pessoa);
+                            // Adicionando a pessoa na lista de pessoas
+                            biblioteca.getPessoas().Add(pessoa);
                             return;
                         }
                     }
                     break;
                 case 2:
                     string titulo, autor, editora;
-                    int quantidadeExemplares, idDoLivro = 0;
+                    int quantidadeExemplares, idLivro = 0;
 
                     Console.WriteLine("Digite o ID do livro");
-                    id = int.Parse(Console.ReadLine());
+                    idLivro = int.Parse(Console.ReadLine());
 
-                    foreach (Livros auxLivros in Livros)
+                    foreach (Livros auxLivro in biblioteca.getLivros())
                     {
-                        if (auxLivros.getId() == auxLivros.getId())
+                        if (auxLivro.getId() == idLivro)
                         {
                             Console.WriteLine("Livro já cadastrado");
                             return;
                         }
                         else
                         {
-                            Console.WriteLine("Digite o nome do autor do livro");
-                            autor = Console.ReadLine();
-                            Console.WriteLine("Digite o titulo do livro");
+                            Console.WriteLine("Digite o título do livro");
                             titulo = Console.ReadLine();
                             Console.WriteLine("Digite o autor do livro");
+                            autor = Console.ReadLine();
+                            Console.WriteLine("Digite a editora do livro");
                             editora = Console.ReadLine();
                             Console.WriteLine("Digite a quantidade de exemplares");
                             quantidadeExemplares = int.Parse(Console.ReadLine());
 
                             // Instanciando o livro
-                            Livros livros = new Livros(id++, titulo, autor, editora, quantidadeExemplares);
+                            Livros livros = new Livros(idLivro++, titulo, autor, editora, quantidadeExemplares);
                             livros.EmprestarLivro(quantidadeExemplares);
 
-                            // Instanciando a biblioteca para guardar o livro
-                            biblioteca.CadastrarLivro(livros);
+                            // Adicionando o livro na lista de livros
+                            biblioteca.getLivros().Add(livros);
+                            return;
                         }
                     }
+
                     break;
                 case 3:
                     Console.WriteLine("Digite o id da pessoa: ");
-                    int idPessoa = int.Parse(Console.ReadLine());
+                    int id_Pessoa = int.Parse(Console.ReadLine());
                     Console.WriteLine("Digite o id do livro: ");
-                    int idLivro = int.Parse(Console.ReadLine());
-                    biblioteca.EmprestarLivroBiblioteca(idPessoa, idLivro);
+                    int id_Livro = int.Parse(Console.ReadLine());
+                    biblioteca.EmprestarLivroBiblioteca(id_Pessoa, id_Livro);
                     break;
                 case 4:
                     Console.WriteLine("Digite o id da pessoa: ");
